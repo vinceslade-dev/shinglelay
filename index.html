@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shingle Lay Construction</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#111;
+color:white;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=80');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content{
+max-width:1000px;
+}
+
+.hero h1{
+font-family:'Oswald',sans-serif;
+font-size:clamp(4rem,10vw,8rem);
+line-height:.95;
+text-transform:uppercase;
+color:#FFC400;
+}
+
+.hero h2{
+font-size:2rem;
+margin-top:20px;
+font-weight:300;
+}
+
+.hero p{
+font-size:1.2rem;
+margin-top:25px;
+line-height:1.7;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+opacity:.9;
+}
+
+.btn{
+display:inline-block;
+margin-top:40px;
+background:#FFC400;
+color:#111;
+padding:18px 40px;
+font-weight:700;
+text-decoration:none;
+border-radius:8px;
+font-size:1.1rem;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.warning-strip{
+background:#FFC400;
+color:black;
+padding:18px;
+font-weight:700;
+text-align:center;
+font-size:1rem;
+}
+
+.section{
+padding:100px 10%;
+}
+
+.section-title{
+font-family:'Oswald',sans-serif;
+font-size:4rem;
+text-align:center;
+margin-bottom:60px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:#1a1a1a;
+padding:40px;
+border-radius:12px;
+transition:.3s;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+font-size:1.6rem;
+margin-bottom:15px;
+color:#FFC400;
+}
+
+.bad-section{
+background:#161616;
+}
+
+.bad-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.bad-card{
+background:#222;
+padding:35px;
+border-left:5px solid red;
+}
+
+.good-card{
+background:#222;
+padding:35px;
+border-left:5px solid #00ff88;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.cta{
+padding:120px 10%;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=80');
+background-size:cover;
+}
+
+.cta h2{
+font-family:'Oswald',sans-serif;
+font-size:5rem;
+color:#FFC400;
+margin-bottom:20px;
+}
+
+footer{
+padding:40px;
+text-align:center;
+background:black;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:4rem;
+}
+
+.section-title{
+font-size:3rem;
+}
+
+.cta h2{
+font-size:3rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="warning-strip">
+⚠ DON'T GET SHINGLE-LAYED ⚠ HONEST PRICING • QUALITY WORK • ON-TIME PROJECTS
+</div>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>DON'T GET<br>SHINGLE-LAYED</h1>
+
+<h2>Call Shingle Lay.</h2>
+
+<p>
+Whether you're remodeling your dream home, replacing a roof,
+or building from the ground up, our team delivers quality
+craftsmanship without the contractor headaches.
+</p>
+
+<a href="#" class="btn">
+GET A FREE ESTIMATE
+</a>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+WHY HOMEOWNERS CHOOSE SHINGLE LAY
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Roofing</h3>
+<p>
+Repairs, replacements, inspections, and complete roofing systems
+built to withstand Texas weather.
+</p>
+</div>
+
+<div class="card">
+<h3>Remodeling</h3>
+<p>
+Transform kitchens, bathrooms, additions, and entire homes
+with expert craftsmanship.
+</p>
+</div>
+
+<div class="card">
+<h3>New Construction</h3>
+<p>
+From blueprint to final walkthrough,
+we build homes designed to last generations.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section bad-section">
+
+<h2 class="section-title">
+WHAT GETTING SHINGLE-LAYED LOOKS LIKE
+</h2>
+
+<div class="bad-grid">
+
+<div class="bad-card">
+<h3>❌ Hidden Fees</h3>
+<p>Unexpected charges showing up halfway through the project.</p>
+</div>
+
+<div class="bad-card">
+<h3>❌ Missed Deadlines</h3>
+<p>Projects dragging on for months longer than promised.</p>
+</div>
+
+<div class="bad-card">
+<h3>❌ Cheap Materials</h3>
+<p>Low quality work that costs more later.</p>
+</div>
+
+<div class="good-card">
+<h3>✅ The Shingle Lay Way</h3>
+<p>Transparent pricing, quality craftsmanship, and communication from start to finish.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+RECENT PROJECTS
+</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde">
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>
+READY TO BUILD?
+</h2>
+
+<p style="font-size:1.4rem; margin-bottom:30px;">
+Don't get shingle-layed.
+Get the job done right the first time.
+</p>
+
+<a href="#" class="btn">
+REQUEST YOUR FREE ESTIMATE
+</a>
+
+</section>
+
+<footer>
+
+<h3>SHINGLE LAY CONSTRUCTION</h3>
+
+<p>
+Roofing • Remodeling • New Construction
+</p>
+
+</footer>
+
+</body>
+</html>

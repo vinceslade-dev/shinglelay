@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shingle Lay | Premium Construction & Engineering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-navy: #0A1128; /* Deep Architectural Navy */
+            --grid-line: rgba(255, 255, 255, 0.05);
+            --accent-white: #FFFFFF;
+            --accent-gold: #D4AF37;
+            --text-muted: #8C96AB;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-navy);
+            color: var(--accent-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            /* Blueprint Grid Effect */
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center top;
+        }
+
+        /* Architectural Header Border layout */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 6%;
+            border-bottom: 1px solid var(--grid-line);
+        }
+
+        .logo-box {
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo-box span {
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-items a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-items a:hover {
+            color: var(--accent-white);
+        }
+
+        /* Hero Wrapper */
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 6% 6rem 6%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        /* Left Editorial Column */
+        .intro-text-column {
+            position: relative;
+        }
+
+        .spec-number {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .spec-number::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--text-muted);
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title strong {
+            font-weight: 700;
+        }
+
+        .hero-title span.gold-wink {
+            color: var(--accent-gold);
+            font-weight: 400;
+            border-bottom: 2px dashed var(--accent-gold);
+        }
+
+        .hero-summary {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 3.5rem;
+            max-width: 540px;
+        }
+
+        /* Engineering Precision Buttons */
+        .btn-set {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .btn-blueprint {
+            background: var(--accent-white);
+            color: var(--bg-navy);
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-blueprint:hover {
+            background: transparent;
+            color: var(--accent-white);
+            box-shadow: inset 0 0 0 2px var(--accent-white);
+        }
+
+        /* Right Spec Card Column */
+        .blueprint-card {
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(10, 17, 40, 0.7);
+            backdrop-filter: blur(12px);
+            padding: 3rem;
+            position: relative;
+        }
+
+        /* Corners crosshair markers to look like CAD blueprint software */
+        .blueprint-card::before, .blueprint-card::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-color: rgba(255,255,255,0.3);
+            border-style: solid;
+        }
+        .blueprint-card::before { top: -5px; left: -5px; border-width: 1px 0 0 1px; }
+        .blueprint-card::after { bottom: -5px; right: -5px; border-width: 0 1px 1px 0; }
+
+        .card-header-spec {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--grid-line);
+            font-size: 0.95rem;
+        }
+
+        .spec-row .label {
+            color: var(--text-muted);
+        }
+
+        .spec-row .val {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .spec-row .val.ok {
+            color: #46FF94;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                padding-top: 4rem;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .nav-items {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-box">Shingle <span>Lay</span></div>
+        <div class="nav-items">
+            <a href="#">Portfolio</a>
+            <a href="#">New Execution</a>
+            <a href="#">Remodeling Specs</a>
+            <a href="mailto:build@shinglelay.com">Inquire</a>
+        </div>
+    </header>
+
+    <main class="hero-container">
+        
+        <div class="intro-text-column">
+            <div class="spec-number">System Specification // 01</div>
+            <h1 class="hero-title">
+                Flawless execution.<br><strong>Zero structural excuses.</strong>
+            </h1>
+            <p class="hero-summary">
+                In an industry where structural shortcuts, surprise expenses, and vanishing crews are the norm, we map every square inch to millimeter precision. Don't get <span class="gold-wink">chingalayed</span> by an amateur bid. 
+            </p>
+            <div class="btn-set">
+                <button class="btn-blueprint">Initialize Estimate</button>
+            </div>
+        </div>
+
+        <div class="blueprint-card">
+            <span class="card-header-spec">[ PROJECT PARAMETERS VERIFICATION ]</span>
+            
+            <div class="spec-row">
+                <span class="label">Primary Operations</span>
+                <span class="val">New Builds & Deep Remodels</span>
+            </div>
+            <div class="spec-row">
+                <span class="label">Budget Deviation Risk</span>
+                <span class="val" style="color: #46FF94;">0.00% Guaranteed</span>
+            </div>
+            <div class="spec-row">
+                <span class="label">Amateur Crew Mitigation</span>
+                <span class="val">100% Secure</span>
+            </div>
+            <div class="spec-row">
+                <span class="label">Chingalay Factor Rating</span>
+                <span class="val" style="color: #FF4646;">Not Detected</span>
+            </div>
+            <div class="spec-row" style="border-bottom: none;">
+                <span class="label">Structural Lifecycle</span>
+                <span class="val">Lifetime Structural Warranty</span>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

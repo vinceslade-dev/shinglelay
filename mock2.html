@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shingle Lay | Luxury Construction & Remodeling</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#faf9f7;
+color:#222;
+overflow-x:hidden;
+}
+
+nav{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+padding:35px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:100;
+}
+
+.logo{
+font-size:1.4rem;
+font-weight:600;
+letter-spacing:3px;
+color:white;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:.95rem;
+letter-spacing:1px;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+padding:0 10%;
+}
+
+.hero-content{
+max-width:850px;
+}
+
+.hero-sub{
+letter-spacing:4px;
+text-transform:uppercase;
+font-size:.9rem;
+color:#e0d7c7;
+margin-bottom:25px;
+}
+
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(4rem,8vw,7rem);
+line-height:.95;
+font-weight:600;
+color:white;
+margin-bottom:30px;
+}
+
+.hero p{
+font-size:1.25rem;
+line-height:1.8;
+color:rgba(255,255,255,.9);
+max-width:700px;
+}
+
+.btn{
+display:inline-block;
+margin-top:40px;
+padding:18px 42px;
+text-decoration:none;
+background:white;
+color:black;
+font-weight:600;
+border-radius:4px;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.section{
+padding:120px 10%;
+}
+
+.section-header{
+text-align:center;
+margin-bottom:80px;
+}
+
+.section-header h2{
+font-family:'Cormorant Garamond',serif;
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.section-header p{
+max-width:700px;
+margin:auto;
+line-height:1.8;
+color:#666;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+text-align:center;
+}
+
+.stat{
+padding:30px;
+}
+
+.stat h3{
+font-size:4rem;
+font-family:'Cormorant Garamond',serif;
+}
+
+.stat p{
+margin-top:10px;
+color:#777;
+}
+
+.split{
+display:grid;
+grid-template-columns:1fr 1fr;
+min-height:700px;
+}
+
+.split-image{
+background:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+}
+
+.split-content{
+display:flex;
+align-items:center;
+padding:80px;
+background:white;
+}
+
+.split-content h2{
+font-family:'Cormorant Garamond',serif;
+font-size:4rem;
+margin-bottom:25px;
+}
+
+.split-content p{
+line-height:1.9;
+color:#666;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.project{
+position:relative;
+overflow:hidden;
+height:500px;
+}
+
+.project img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.6s;
+}
+
+.project:hover img{
+transform:scale(1.08);
+}
+
+.project-overlay{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:30px;
+background:linear-gradient(transparent,rgba(0,0,0,.9));
+color:white;
+}
+
+.testimonial{
+background:#f1eee9;
+padding:140px 10%;
+text-align:center;
+}
+
+.testimonial blockquote{
+font-family:'Cormorant Garamond',serif;
+font-size:3rem;
+max-width:1000px;
+margin:auto;
+line-height:1.3;
+}
+
+.testimonial p{
+margin-top:30px;
+color:#777;
+}
+
+.cta{
+background:#111;
+color:white;
+padding:140px 10%;
+text-align:center;
+}
+
+.cta h2{
+font-family:'Cormorant Garamond',serif;
+font-size:5rem;
+margin-bottom:25px;
+}
+
+footer{
+background:black;
+color:white;
+padding:50px;
+text-align:center;
+}
+
+@media(max-width:900px){
+
+.split{
+grid-template-columns:1fr;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+.projects{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:4rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+SHINGLE LAY
+</div>
+
+<div class="nav-links">
+<a href="#">Projects</a>
+<a href="#">Services</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-sub">
+Luxury Construction • Remodeling • Custom Homes
+</div>
+
+<h1>
+Built To Be Admired.
+Crafted To Last.
+</h1>
+
+<p>
+For homeowners who expect exceptional craftsmanship,
+refined design, and a construction experience defined by
+communication, transparency, and precision.
+</p>
+
+<a href="#" class="btn">
+Schedule Consultation
+</a>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>
+The New Standard For Residential Construction
+</h2>
+
+<p>
+From whole-home transformations to custom builds,
+Shingle Lay delivers extraordinary spaces designed around
+the way you live.
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>250+</h3>
+<p>Projects Completed</p>
+</div>
+
+<div class="stat">
+<h3>15+</h3>
+<p>Years Experience</p>
+</div>
+
+<div class="stat">
+<h3>98%</h3>
+<p>Client Satisfaction</p>
+</div>
+
+<div class="stat">
+<h3>5★</h3>
+<p>Average Rating</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="split">
+
+<div class="split-image"></div>
+
+<div class="split-content">
+
+<div>
+
+<h2>
+Luxury Is In The Details
+</h2>
+
+<p>
+Exceptional homes are not built from shortcuts.
+Every material, every finish, every line is selected
+with intention to create spaces that remain timeless
+for decades.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>
+Featured Work
+</h2>
+
+</div>
+
+<div class="projects">
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
+<div class="project-overlay">
+Modern Residence
+</div>
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f">
+<div class="project-overlay">
+Luxury Renovation
+</div>
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1600210492493-0946911123ea">
+<div class="project-overlay">
+Custom Build
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="testimonial">
+
+<blockquote>
+"The level of communication, craftsmanship,
+and professionalism exceeded every expectation."
+</blockquote>
+
+<p>
+— Happy Homeowner
+</p>
+
+</section>
+
+<section class="cta">
+
+<h2>
+Let's Build Something Exceptional
+</h2>
+
+<a href="#" class="btn">
+Request A Consultation
+</a>
+
+</section>
+
+<footer>
+
+<h3>SHINGLE LAY</h3>
+
+<p>
+Luxury Remodeling • Roofing • New Construction
+</p>
+
+</footer>
+
+</body>
+</html>

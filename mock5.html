@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shingle Lay | Premium Remodeling & Builds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0F1115;
+            --card-dark: #171A21;
+            --accent: #E5A93C; /* Warm gold */
+            --danger: #FF5A5A;
+            --text-light: #F3F4F6;
+            --text-muted: #8E95A5;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-serif: 'DM Serif Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Nav Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 5%;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .brand {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .contact-btn {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-light);
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--text-light);
+            color: var(--bg-dark);
+            border-color: var(--text-light);
+        }
+
+        /* Main Section Container */
+        .hero-split-section {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 0 0 0 5%;
+            gap: 4rem;
+        }
+
+        /* Left Side: Editorial Typography */
+        .text-block {
+            padding-top: 4rem;
+        }
+
+        .quote-tag {
+            color: var(--danger);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .main-title {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-title em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 520px;
+        }
+
+        .action-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #000;
+            padding: 1.2rem 2.5rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s ease, background-color 0.3s;
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            background-color: #f1b852;
+        }
+
+        /* Right Side: Interactive Trauma Split Slider */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #222;
+        }
+
+        .slider-pane {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* "Chingalayed" Bad Side styling via CSS fallback assets */
+        .pane-before {
+            background-color: #262930;
+            background-image: radial-gradient(rgba(255, 90, 90, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+            width: 50%; /* Adjusted dynamically by JS */
+            z-index: 2;
+            border-right: 3px solid var(--accent);
+        }
+
+        /* "Shingle Lay" Good Side styling */
+        .pane-after {
+            background-color: #1A231E;
+            background-image: radial-gradient(rgba(233, 169, 60, 0.1) 1px, transparent 0);
+            background-size: 24px 24px;
+            z-index: 1;
+        }
+
+        .pane-label {
+            position: absolute;
+            bottom: 3rem;
+            padding: 0.75rem 1.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            border-radius: 4px;
+        }
+
+        .label-before {
+            right: 2rem;
+            background: var(--danger);
+            color: #000;
+        }
+
+        .label-after {
+            right: 2rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text-light);
+        }
+
+        /* Invisible Native Input Controller layered perfectly over the split border */
+        .slider-input {
+            position: absolute;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 5;
+            cursor: ew-resize;
+            outline: none;
+        }
+
+        .slider-input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 4px solid var(--bg-dark);
+            cursor: ew-resize;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        .center-alert {
+            max-width: 320px;
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .center-alert h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .center-alert p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Break */
+        @media (max-width: 1024px) {
+            .hero-split-section {
+                grid-template-columns: 1fr;
+                padding: 8rem 5% 4rem 5%;
+            }
+            .slider-wrapper {
+                height: 500px;
+                border-radius: 12px;
+            }
+            .main-title {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="brand">Shingle <span>Lay.</span></a>
+        <a href="#" class="contact-btn">Schedule Consultation</a>
+    </header>
+
+    <main class="hero-split-section">
+        
+        <div class="text-block">
+            <span class="quote-tag">"They promised it'd take two weeks..."</span>
+            <h1 class="main-title">Don't get <em>chingalayed</em> by cheap bids.</h1>
+            <p class="description">
+                We've built our reputation on fixing the structural nightmares, missed timelines, and ghosted budgets left behind by lesser crews. Get your premium new build or deep home remodel done right the first time.
+            </p>
+            <a href="#" class="action-button">Request Blueprint Audit</a>
+        </div>
+
+        <div class="slider-wrapper">
+            <!-- Dynamic Native Controller -->
+            <input type="range" min="0" max="100" value="50" class="slider-input" id="dragSlider">
+            
+            <!-- Before Side (Left Controlled Width) -->
+            <div class="slider-pane pane-before" id="beforePane">
+                <div class="center-alert" style="border-top: 3px solid var(--danger);">
+                    <h3 style="color: var(--danger);">The Cut Corners</h3>
+                    <p>Crooked frames, leaking flashing, unpermitted framing, and excuses.</p>
+                </div>
+                <span class="pane-label label-before">Chingalayed</span>
+            </div>
+            
+            <!-- After Side (Base Background) -->
+            <div class="slider-pane pane-after">
+                <div class="center-alert" style="border-top: 3px solid var(--accent);">
+                    <h3 style="color: var(--accent);">The Finished Build</h3>
+                    <p>Laser-straight alignments, architectural finish, flawless engineering.</p>
+                </div>
+                <span class="pane-label label-after">The Shingle Lay Way</span>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        const slider = document.getElementById('dragSlider');
+        const beforePane = document.getElementById('beforePane');
+
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            beforePane.style.width = `${val}%`;
+        });
+    </script>
+</body>
+</html>
