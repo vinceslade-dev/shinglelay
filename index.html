@@ -1,345 +1,517 @@
+Here is the complete, rewritten HTML code. I have updated the file to include a dedicated **Contact Section** featuring Mike's contact info, mapped the navigation links to smooth-scroll directly to their respective sections, and added a phone number link to the footer for easy mobile clicking.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shingle Lay Construction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<title>Shingle Lay Construction</title>
+        html {
+            scroll-behavior: smooth;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
 
-<style>
+        body::before {
+            content: '';
+            position: fixed;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 196, 0, .12), transparent 70%);
+            top: -300px;
+            right: -200px;
+            pointer-events: none;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, .4);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
 
-body{
-font-family:'Inter',sans-serif;
-background:#111;
-color:white;
-overflow-x:hidden;
-}
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
 
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=80');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-}
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
 
-.hero-content{
-max-width:1000px;
-}
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            opacity: .8;
+            transition: .3s;
+        }
 
-.hero h1{
-font-family:'Oswald',sans-serif;
-font-size:clamp(4rem,10vw,8rem);
-line-height:.95;
-text-transform:uppercase;
-color:#FFC400;
-}
+        .nav-links a:hover {
+            opacity: 1;
+        }
 
-.hero h2{
-font-size:2rem;
-margin-top:20px;
-font-weight:300;
-}
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            position: relative;
+        }
 
-.hero p{
-font-size:1.2rem;
-margin-top:25px;
-line-height:1.7;
-max-width:700px;
-margin-left:auto;
-margin-right:auto;
-opacity:.9;
-}
+        .hero-content {
+            max-width: 950px;
+        }
 
-.btn{
-display:inline-block;
-margin-top:40px;
-background:#FFC400;
-color:#111;
-padding:18px 40px;
-font-weight:700;
-text-decoration:none;
-border-radius:8px;
-font-size:1.1rem;
-transition:.3s;
-}
+        .badge {
+            display: inline-block;
+            padding: 10px 18px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, .05);
+            backdrop-filter: blur(15px);
+            margin-bottom: 30px;
+        }
 
-.btn:hover{
-transform:translateY(-4px);
-}
+        .hero h1 {
+            font-size: clamp(4rem, 10vw, 8rem);
+            line-height: .9;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
 
-.warning-strip{
-background:#FFC400;
-color:black;
-padding:18px;
-font-weight:700;
-text-align:center;
-font-size:1rem;
-}
+        .hero h1 span {
+            color: #FFC400;
+        }
 
-.section{
-padding:100px 10%;
-}
+        .hero p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            opacity: .8;
+            max-width: 700px;
+        }
 
-.section-title{
-font-family:'Oswald',sans-serif;
-font-size:4rem;
-text-align:center;
-margin-bottom:60px;
-}
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
+        .btn {
+            padding: 18px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: .3s ease;
+        }
 
-.card{
-background:#1a1a1a;
-padding:40px;
-border-radius:12px;
-transition:.3s;
-border:1px solid rgba(255,255,255,.08);
-}
+        .btn-primary {
+            background: #FFC400;
+            color: black;
+        }
 
-.card:hover{
-transform:translateY(-10px);
-}
+        .btn-primary:hover {
+            background: #e6b200;
+            transform: translateY(-2px);
+        }
 
-.card h3{
-font-size:1.6rem;
-margin-bottom:15px;
-color:#FFC400;
-}
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, .15);
+            color: white;
+        }
 
-.bad-section{
-background:#161616;
-}
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, .05);
+            border-color: rgba(255, 255, 255, .3);
+        }
 
-.bad-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            padding: 80px 8%;
+        }
 
-.bad-card{
-background:#222;
-padding:35px;
-border-left:5px solid red;
-}
+        .stat {
+            padding: 40px;
+            background: rgba(255, 255, 255, .04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 24px;
+            text-align: center;
+        }
 
-.good-card{
-background:#222;
-padding:35px;
-border-left:5px solid #00ff88;
-}
+        .stat h2 {
+            font-size: 3rem;
+            color: #FFC400;
+            margin-bottom: 10px;
+        }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
+        .section {
+            padding: 140px 8%;
+        }
 
-.gallery img{
-width:100%;
-height:300px;
-object-fit:cover;
-border-radius:10px;
-}
+        .section-title {
+            font-size: 4rem;
+            margin-bottom: 70px;
+        }
 
-.cta{
-padding:120px 10%;
-text-align:center;
-background:
-linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
-url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=80');
-background-size:cover;
-}
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-.cta h2{
-font-family:'Oswald',sans-serif;
-font-size:5rem;
-color:#FFC400;
-margin-bottom:20px;
-}
+        .service-card {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            transition: .4s;
+        }
 
-footer{
-padding:40px;
-text-align:center;
-background:black;
-}
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFC400;
+        }
 
-@media(max-width:768px){
+        .service-number {
+            font-size: 4rem;
+            opacity: .15;
+            margin-bottom: 20px;
+        }
 
-.hero h1{
-font-size:4rem;
-}
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
 
-.section-title{
-font-size:3rem;
-}
+        .service-card p {
+            line-height: 1.8;
+            opacity: .75;
+        }
 
-.cta h2{
-font-size:3rem;
-}
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
 
-}
+        .project {
+            height: 500px;
+            overflow: hidden;
+            border-radius: 24px;
+            position: relative;
+        }
 
-</style>
+        .project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .7s;
+        }
+
+        .project:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, .9));
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .step {
+            padding: 35px;
+            border-left: 3px solid #FFC400;
+            background: rgba(255, 255, 255, .03);
+        }
+
+        .step span {
+            font-size: 4rem;
+            opacity: .2;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 32px;
+            padding: 60px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            backdrop-filter: blur(20px);
+        }
+
+        .contact-box h3 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .contact-box p {
+            font-size: 1.2rem;
+            opacity: .7;
+            margin-bottom: 30px;
+        }
+
+        .contact-box .phone-link {
+            font-size: 3rem;
+            color: #FFC400;
+            text-decoration: none;
+            font-weight: 700;
+            display: block;
+            transition: .3s;
+            letter-spacing: 1px;
+        }
+
+        .contact-box .phone-link:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(255, 196, 0, 0.3);
+        }
+
+        .cta {
+            padding: 150px 8% 80px 8%;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 5rem;
+            max-width: 900px;
+            margin: auto;
+            line-height: 1;
+        }
+
+        .cta p {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            opacity: .7;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            opacity: .6;
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, .4);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: .3s;
+        }
+
+        footer a:hover {
+            color: #FFC400;
+        }
+
+        @media(max-width:900px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .process {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .cta h2 {
+                font-size: 3rem;
+            }
+
+            .contact-box {
+                padding: 40px 20px;
+            }
+
+            .contact-box .phone-link {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="warning-strip">
-⚠ DON'T GET SHINGLE-LAYED ⚠ HONEST PRICING • QUALITY WORK • ON-TIME PROJECTS
-</div>
+    <nav>
+        <div class="logo">SHINGLE LAY</div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-<section class="hero">
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Austin's Modern Construction Company</div>
+            <h1>BUILD.<br>REMODEL.<br><span>DOMINATE.</span></h1>
+            <p>Shingle Lay combines elite craftsmanship, modern project management, and transparent communication to deliver construction projects without surprises.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get Estimate</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+        </div>
+    </section>
 
-<div class="hero-content">
+    <section class="stats">
+        <div class="stat">
+            <h2>250+</h2>
+            <p>Projects</p>
+        </div>
+        <div class="stat">
+            <h2>15+</h2>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat">
+            <h2>98%</h2>
+            <p>Satisfaction</p>
+        </div>
+        <div class="stat">
+            <h2>24/7</h2>
+            <p>Communication</p>
+        </div>
+    </section>
 
-<h1>DON'T GET<br>SHINGLE-LAYED</h1>
+    <section class="section" id="services">
+        <h2 class="section-title">Services</h2>
+        <div class="services">
+            <div class="service-card">
+                <div class="service-number">01</div>
+                <h3>Roofing</h3>
+                <p>Premium roofing systems built for durability and curb appeal.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-number">02</div>
+                <h3>Remodeling</h3>
+                <p>Whole-home, kitchen, bathroom, and luxury renovations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-number">03</div>
+                <h3>New Builds</h3>
+                <p>Custom homes from concept through completion.</p>
+            </div>
+        </div>
+    </section>
 
-<h2>Call Shingle Lay.</h2>
+    <section class="section" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f" alt="Modern Residence">
+                <div class="project-info">Modern Residence</div>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d" alt="Luxury Remodel">
+                <div class="project-info">Luxury Remodel</div>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="Custom Build">
+                <div class="project-info">Custom Build</div>
+            </div>
+        </div>
+    </section>
 
-<p>
-Whether you're remodeling your dream home, replacing a roof,
-or building from the ground up, our team delivers quality
-craftsmanship without the contractor headaches.
-</p>
+    <section class="section" id="process">
+        <h2 class="section-title">Our Process</h2>
+        <div class="process">
+            <div class="step">
+                <span>01</span>
+                <h3>Consult</h3>
+                <p>Discover project goals and expectations.</p>
+            </div>
+            <div class="step">
+                <span>02</span>
+                <h3>Plan</h3>
+                <p>Create budgets, schedules, and designs.</p>
+            </div>
+            <div class="step">
+                <span>03</span>
+                <h3>Build</h3>
+                <p>Execute with precision and accountability.</p>
+            </div>
+            <div class="step">
+                <span>04</span>
+                <h3>Deliver</h3>
+                <p>Final walkthrough and quality assurance.</p>
+            </div>
+        </div>
+    </section>
 
-<a href="#" class="btn">
-GET A FREE ESTIMATE
-</a>
+    <section class="cta">
+        <h2>Building Austin's Future One Project At A Time</h2>
+        <p>Construction without confusion. Remodeling without stress.</p>
+    </section>
 
-</div>
+    <section class="section" id="contact" style="padding-top: 0;">
+        <div class="contact-box">
+            <h3>Ready to Build?</h3>
+            <p>Reach out directly to Mike to get an estimate or discuss your next project.</p>
+            <a href="tel:5128226108" class="phone-link">(512) 822-6108</a>
+        </div>
+    </section>
 
-</section>
-
-<section class="section">
-
-<h2 class="section-title">
-WHY HOMEOWNERS CHOOSE SHINGLE LAY
-</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Roofing</h3>
-<p>
-Repairs, replacements, inspections, and complete roofing systems
-built to withstand Texas weather.
-</p>
-</div>
-
-<div class="card">
-<h3>Remodeling</h3>
-<p>
-Transform kitchens, bathrooms, additions, and entire homes
-with expert craftsmanship.
-</p>
-</div>
-
-<div class="card">
-<h3>New Construction</h3>
-<p>
-From blueprint to final walkthrough,
-we build homes designed to last generations.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section bad-section">
-
-<h2 class="section-title">
-WHAT GETTING SHINGLE-LAYED LOOKS LIKE
-</h2>
-
-<div class="bad-grid">
-
-<div class="bad-card">
-<h3>❌ Hidden Fees</h3>
-<p>Unexpected charges showing up halfway through the project.</p>
-</div>
-
-<div class="bad-card">
-<h3>❌ Missed Deadlines</h3>
-<p>Projects dragging on for months longer than promised.</p>
-</div>
-
-<div class="bad-card">
-<h3>❌ Cheap Materials</h3>
-<p>Low quality work that costs more later.</p>
-</div>
-
-<div class="good-card">
-<h3>✅ The Shingle Lay Way</h3>
-<p>Transparent pricing, quality craftsmanship, and communication from start to finish.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">
-RECENT PROJECTS
-</h2>
-
-<div class="gallery">
-
-<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-<img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde">
-
-</div>
-
-</section>
-
-<section class="cta">
-
-<h2>
-READY TO BUILD?
-</h2>
-
-<p style="font-size:1.4rem; margin-bottom:30px;">
-Don't get shingle-layed.
-Get the job done right the first time.
-</p>
-
-<a href="#" class="btn">
-REQUEST YOUR FREE ESTIMATE
-</a>
-
-</section>
-
-<footer>
-
-<h3>SHINGLE LAY CONSTRUCTION</h3>
-
-<p>
-Roofing • Remodeling • New Construction
-</p>
-
-</footer>
+    <footer>
+        <h3>SHINGLE LAY CONSTRUCTION</h3>
+        <p>Roofing • Remodeling • New Construction</p>
+        <p><a href="tel:5128226108">Contact Mike: (512) 822-6108</a></p>
+    </footer>
 
 </body>
 </html>
+
+```
